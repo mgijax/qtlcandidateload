@@ -16,7 +16,7 @@ fi
 
 . ${MGICONFIG}/master.config.sh
 
-CONFIG=${TSSGENELOAD}/qtlcandidateload.config
+CONFIG=${QTLCANDIDATELOAD}/qtlcandidateload.config
 
 #
 # verify & source the configuration file
