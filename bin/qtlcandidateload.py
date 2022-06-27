@@ -3,6 +3,9 @@
 #      Find QTL Candidate Genes via Mapping Experiments
 #       and load QTL/Candidate Gene relationships
 #
+# Usage:
+#       qtlcandidateload.py
+#
 #  Inputs:
 #
 #       QTLs in the database
@@ -26,13 +29,13 @@
 #	
 #  Implementation:
 #
-#      1) Validate the arguments to the script.
-#      2) Perform initialization steps.
-#      3) Query DB for QTLs and their Mapping Experiments
-#      4) Determine Candidate Genes
-#      5) Write out to relationship bcp
-#      6) Delete existing relationships
-#      7) BCP in new relationships:
+#
+#      1) Perform initialization steps
+#      2) Query DB for QTLs and their Mapping Experiments
+#      3) Determine Candidate Genes
+#      4) Write out to relationship bcp
+#      5) Delete existing relationships
+#      6) BCP in new relationships
 #
 # History:
 #
