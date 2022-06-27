@@ -223,15 +223,6 @@ def findRelationships( ):
 # Assumes: None
 # Effects: None
 #
-def writeReports():
-
-    return 0
-
-# Purpose: deletes existing relationships
-# Returns: None
-# Assumes: None
-# Effects: None
-#
 def doDeletes():
     db.sql('''delete from MGI_Relationship where _CreatedBy_key = %s ''' % userKey, None)
     db.commit()
@@ -265,6 +256,25 @@ def bcpFiles():
 
 # end bcpFiles() -------------------------------------
 
+def exit(
+    # Purpose: prints error 'message' if it is not None
+    #     writes to log files and exits with 'status'
+    # Returns: nothing
+    # Assumes: Nothing
+    # Effects: Exits with 'status'
+
+    status,          # numeric exit status (integer)
+    message = None   # exit message (str.
+    ):
+
+    if message is not None:
+        sys.stderr.write('\n' + str(message) + '\n')
+    closeFiles()
+    db.useOneConnection(0)
+    sys.exit(status)
+
+# end exit() -------------------------------------
+
 #
 # Main
 #
@@ -279,12 +289,6 @@ print('findRelationships()')
 # determine qtl candidate genes and write to bcp
 if findRelationships() != 0:
     exit(1, 'Error in  findRelationships \n' )
-
-#print('%s' % mgi_utils.date())
-#print('writeReports()')
-## write out info for each bucket of relationships
-#if writeReports() != 0:
-#    exit(1, 'Error in  writeReports \n' )
 
 print('%s' % mgi_utils.date())
 print('doDeletes()')
